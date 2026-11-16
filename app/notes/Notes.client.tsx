@@ -1,7 +1,11 @@
 'use client';
 
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { keepPreviousData } from '@tanstack/query-core';
+import {
+  useMutation,
+  useQuery,
+  useQueryClient,
+  keepPreviousData,
+} from '@tanstack/react-query';
 import { useState } from 'react';
 import { createNote, deleteNote, fetchNotes } from '@/lib/api';
 import { useDebouncedCallback } from 'use-debounce';
@@ -10,6 +14,7 @@ import Pagination from '@/components/Pagination/Pagination';
 import NoteList from '@/components/NoteList/NoteList';
 import Modal from '@/components/Modal/Modal';
 import NoteForm from '@/components/NoteForm/NoteForm';
+import EmptyMessage from '@/components/EmptyMessage/EmptyMessage';
 import css from './Notes.page.module.css';
 
 function NotesClient() {
@@ -23,6 +28,7 @@ function NotesClient() {
     queryFn: () => fetchNotes({ search: query, page: selectedPage }),
     placeholderData: keepPreviousData,
     refetchOnMount: false,
+    throwOnError: true,
   });
 
   const createNoteMutation = useMutation({
@@ -71,6 +77,7 @@ function NotesClient() {
           Create note +
         </button>
       </header>
+      {isSuccess && data.notes.length === 0 && <EmptyMessage query={query} />}
       {isSuccess && data.notes.length > 0 && (
         <NoteList
           notes={data.notes}

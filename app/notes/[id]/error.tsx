@@ -8,7 +8,11 @@ type Props = {
 
 function NoteDetailsError({ error }: Props) {
   return (
-    <ErrorMessage message={`Could not fetch note details. ${error.message}`} />
+    <main>
+      <ErrorMessage
+        message={`Could not fetch note details. ${error.message}`}
+      />
+    </main>
   );
 }
 

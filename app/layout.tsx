@@ -16,7 +16,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       <body>
         <TanStackProvider>
           <Header />
-          <main>{children}</main>
+          {children}
           <Footer />
         </TanStackProvider>
       </body>

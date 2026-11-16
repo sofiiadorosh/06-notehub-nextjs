@@ -6,6 +6,8 @@ import {
 import { fetchNotes } from '@/lib/api';
 import NotesClient from '@/app/notes/Notes.client';
 
+export const dynamic = 'force-dynamic';
+
 async function Notes() {
   const queryClient = new QueryClient();
   const search = '';
@@ -17,9 +19,11 @@ async function Notes() {
   });
 
   return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      <NotesClient />
-    </HydrationBoundary>
+    <main>
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <NotesClient />
+      </HydrationBoundary>
+    </main>
   );
 }
 

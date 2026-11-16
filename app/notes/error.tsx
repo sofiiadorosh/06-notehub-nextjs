@@ -8,9 +8,11 @@ type Props = {
 
 function NotesError({ error }: Props) {
   return (
-    <ErrorMessage
-      message={`Could not fetch the list of notes. ${error.message}`}
-    />
+    <main>
+      <ErrorMessage
+        message={`Could not fetch the list of notes. ${error.message}`}
+      />
+    </main>
   );
 }
 

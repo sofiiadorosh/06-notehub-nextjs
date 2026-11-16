@@ -1,5 +1,6 @@
-import css from './NoteList.module.css';
+import Link from 'next/link';
 import type { Note } from '@/types/note';
+import css from './NoteList.module.css';
 
 interface NoteListProps {
   notes: Note[];
@@ -16,6 +17,9 @@ function NoteList({ notes, onDelete, isDeleting }: NoteListProps) {
           <p className={css.content}>{content}</p>
           <div className={css.footer}>
             <span className={css.tag}>{tag}</span>
+            <Link className={css.link} href={`/notes/${id}`}>
+              View details
+            </Link>
             <button
               type="button"
               className={css.button}

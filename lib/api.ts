@@ -28,6 +28,11 @@ export async function fetchNotes({
   return data;
 }
 
+export async function fetchNoteById(id: string): Promise<Note> {
+  const { data } = await NOTEHUB.get<Note>(`/notes/${id}`);
+  return data;
+}
+
 export async function createNote(note: NewNote): Promise<Note> {
   const { data } = await NOTEHUB.post<Note>('/notes', note);
   return data;

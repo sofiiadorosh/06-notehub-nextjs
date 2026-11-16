@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import 'modern-normalize';
 import './globals.css';
+import Header from '@/app/components/Header/Header';
+import Footer from '@/app/components/Footer/Footer';
 
 export const metadata: Metadata = {
   title: '06-notehub-nextjs',
@@ -10,7 +12,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

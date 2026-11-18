@@ -17,3 +17,13 @@ export interface Note {
 }
 
 export type NewNote = Pick<Note, 'title' | 'content' | 'tag'>;
+
+export interface FetchNotesParams {
+  search: string;
+  page: number;
+}
+
+export interface FetchNotesResponse {
+  notes: Note[];
+  totalPages: number;
+}

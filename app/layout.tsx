@@ -1,3 +1,4 @@
+import { type ReactNode } from 'react';
 import type { Metadata } from 'next';
 import 'modern-normalize';
 import './globals.css';
@@ -10,7 +11,11 @@ export const metadata: Metadata = {
   description: 'NoteHub Homework Application built with Next.js',
 };
 
-export default function RootLayout({ children }: LayoutProps<'/'>) {
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body>
@@ -23,3 +28,5 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
     </html>
   );
 }
+
+export default RootLayout;

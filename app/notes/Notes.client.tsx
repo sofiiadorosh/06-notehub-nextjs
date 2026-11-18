@@ -15,7 +15,7 @@ import NoteList from '@/components/NoteList/NoteList';
 import Modal from '@/components/Modal/Modal';
 import NoteForm from '@/components/NoteForm/NoteForm';
 import EmptyMessage from '@/components/EmptyMessage/EmptyMessage';
-import css from './Notes.page.module.css';
+import css from './NotesPage.module.css';
 
 function NotesClient() {
   const queryClient = useQueryClient();
